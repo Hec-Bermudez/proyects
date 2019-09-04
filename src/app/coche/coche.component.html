@@ -1,0 +1,30 @@
+{{saludo}}
+<hr>
+<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
+    <label>Nombre</label>
+    <input name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" type="text" required>
+    <span *ngIf="nombre.touched && !nombre.valid">
+        El nombre del coche es requierido
+    </span>
+    <br>
+    <label>HP</label>
+    <input name="hp" #hp="ngModel" [(ngModel)]="coche.hp" type="text" required pattern="[0-9]+">
+    <span *ngIf="hp.touched && !hp.valid">
+            La capacidad introducida no es valida
+    </span>
+    <br>
+    <label>Modelo</label>
+    <input name="modelo" #modelo="ngModel" [(ngModel)]="coche.modelo" type="text" required pattern="[0-9]+">
+    <span *ngIf="modelo.touched && !modelo.valid">
+            La capacidad introducida no es valida
+    </span>
+    <br>
+    <input type="submit" value="Guardar" />
+</form>
+
+
+<hr>
+
+<p>Nombre:{{coche.nombre}}</p>
+<p>HP:{{coche.hp}}</p>
+<p>Modelo:{{coche.modelo}}</p>

@@ -6,6 +6,7 @@ import {FrutaComponent} from './fruta/fruta.component';
 import {HomeComponent} from './home/home.component';
 import {ContactoComponent} from './contacto/contacto.component';
 import { FormularioComponent } from '../app/formulario/formulario.component';
+import {CocheComponent} from './coche/coche.component';
 
 const appRoutes : Routes =[
     {path : '' , component : HomeComponent},
@@ -15,6 +16,8 @@ const appRoutes : Routes =[
     {path : 'contacto', component : ContactoComponent},
     {path : 'contacto/:user/:idservice', component : ContactoComponent},
     {path : 'formulario' , component : FormularioComponent},
+    {path : 'coche' , component : CocheComponent},
+    
     {path : '**' , component : HomeComponent}
     
 ];

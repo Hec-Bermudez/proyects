@@ -1,32 +1,27 @@
 <h3>{{saludo}}</h3>
 
-<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
-    <p>
-        <label>
-                    Nombre
-                </label>
-        <input type="text" name="nombre" #nombre="ngModel" ([ngModel])="coche.nombre" requrired/>
-    </p>
-    <p>
-        <label>
-                    Caballos de fuerza
-                </label>
-        <input type="text" name="hp" #hp="ngModel" ([ngModel])="coche.hp" />
-    </p>
-    <p>
-        <label>
-                    Modelo
-                </label>
-        <input type="text" name="modelo" #modelo="ngModel" ([ngModel])="coche.modelo" />
-    </p>
-    <p>
-        <label>
-                    Color
-                </label>
-        <input type="text" name="color" #color="ngModel" ([ngModel])="coche.color" />
-    </p>
-
-    <input type="submit" value="Guardar">
+<form #formCoche="ngForm" (ngSubmit)="onSubmit();formCoche.reset();">
+    <label>Nombre</label>
+    <input name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" type="text" required>
+    <span *ngIf="nombre.touched && !nombre.valid" [ngStyle]="{'color':'red'}">El nombre es requerido</span>
+    <br>
+    <label>Caballos de fuerza</label>
+    <input name="hp" #hp="ngModel" type="text" [(ngModel)]="coche.hp" pattern="[0-9]+" />
+    <span *ngIf="hp.touched && !hp.valid" [ngStyle]="{'color':'red'}">La potencia del motor no es válida</span>
+    <br>
+    <label>Modelo</label>
+    <input name="modelo" #modelo="ngModel" type="text" [(ngModel)]="coche.modelo" pattern="^\d{4}$" />
+    <span *ngIf="modelo.touched && !modelo.valid" [ngStyle]="{'color':'red'}">El modelo del auto es incorrecto</span>
+    <br>
+    <label>Color</label>
+    <input name="color" #color="ngModel" type="text" [(ngModel)]="coche.color" required pattern="[a-zA-Z ]*" />
+    <span *ngIf="color.touched && !color.valid" [ngStyle]="{'color':'red'}">El color del auto es incorrecto</span>
+    <br>
+    <input type="submit" value="Guardar" [disabled]="!formCoche.form.valid">
 </form>
-
-<p>{{coche.nombre}}-{{coche.hp}}-{{coche.modelo}}-{{coche.color}}</p>
+<hr>
+<ul>
+    <li *ngFor="let coche of listaCoches; let i = index">
+        {{coche.nombre}} - {{coche.modelo}} - {{coche.color}} - {{coche.hp}} <a (click)="removeCoche(i)" [ngStyle]="{'color':'blue'}">Eliminar</a>
+    </li>
+</ul>

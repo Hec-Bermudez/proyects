@@ -11,6 +11,7 @@ import { EmpleadosComponent } from '../app/empleados/empleados.component';
 import { HomeComponent } from '../app/home/home.component';
 import { ContactoComponent } from '../app/contacto/contacto.component';
 import { FormularioComponent } from '../app/formulario/formulario.component';
+import {CocheComponent} from './coche/coche.component';
 
 import {ConversorPipe} from './pipes/conversor.pipe';
 
@@ -22,7 +23,8 @@ import {ConversorPipe} from './pipes/conversor.pipe';
     HomeComponent,
     ContactoComponent,
     ConversorPipe,
-    FormularioComponent
+    FormularioComponent,
+    CocheComponent
   ],
   imports: [
     BrowserModule,
