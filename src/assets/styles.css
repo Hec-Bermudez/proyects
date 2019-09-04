@@ -1,0 +1,15 @@
+.fondoAzul {
+    background-color: lightblue !important;
+}
+
+.fondoRojo {
+    background-color: lightcoral !important;
+}
+
+.fondoVerde {
+    background-color: lightgreen !important;
+}
+
+.activado {
+    color: red;
+}

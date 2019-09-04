@@ -1,0 +1,9 @@
+<h3>{{saludo}}</h3>
+
+<div *ngIf="userId">
+    El id de usuario es {{userId}}
+</div>
+<div *ngIf="!userId">
+    <button (click)="redirigir('Parametros')">Ir a pagina con parametros</button>
+    <button (click)="redirigir('Home')">Ir a pagina con parametros</button>
+</div>

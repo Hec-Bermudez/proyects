@@ -1,0 +1,11 @@
+<h4>{{saludo}}</h4>
+
+<strong>{{fecha|date:'yyyy/MM/dd'}}</strong>
+<br>
+<p>{{5|conversor:7}}</p>
+<input [(ngModel)]="nuevaPrenda" type="text"><button (click)="addPrenda()">Añadir Prenda</button>
+<ul>
+    <li *ngFor="let prenda of listaPrendas;let i = index">
+        {{prenda|uppercase}}<button (click)="removePrenda(i)"> Borrar</button>
+    </li>
+</ul>

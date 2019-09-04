@@ -1,0 +1,32 @@
+<h3>{{saludo}}</h3>
+
+<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label>
+                    Nombre
+                </label>
+        <input type="text" name="nombre" #nombre="ngModel" ([ngModel])="coche.nombre" requrired/>
+    </p>
+    <p>
+        <label>
+                    Caballos de fuerza
+                </label>
+        <input type="text" name="hp" #hp="ngModel" ([ngModel])="coche.hp" />
+    </p>
+    <p>
+        <label>
+                    Modelo
+                </label>
+        <input type="text" name="modelo" #modelo="ngModel" ([ngModel])="coche.modelo" />
+    </p>
+    <p>
+        <label>
+                    Color
+                </label>
+        <input type="text" name="color" #color="ngModel" ([ngModel])="coche.color" />
+    </p>
+
+    <input type="submit" value="Guardar">
+</form>
+
+<p>{{coche.nombre}}-{{coche.hp}}-{{coche.modelo}}-{{coche.color}}</p>
